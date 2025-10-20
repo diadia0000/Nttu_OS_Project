@@ -1,15 +1,17 @@
-# 🧠 OS 期中專案 - CPU 排程演算法模擬器
+# OS 期中專案 - CPU 排程演算法模擬器
 
 本專案旨在使用 **Python** 實作並比較三種常見的 CPU 排程演算法。  
 透過模擬一組行程（Process）的執行，我們將計算並分析各演算法的效能指標，包含：  
 - 平均等待時間（Average Waiting Time）  
-- 平均周轉時間（Average Turnaround Time）  
-
-並將結果以圖表方式視覺化呈現。 🚀
+- 平均周轉時間（Average Turnaround Time）
+- 回應時間 (Response Time)
+- CPU 使用率 (CPU Utilization)
+- 吞吐量 (Throughput)
+並將結果以圖表方式視覺化呈現。
 
 ---
 
-## 🎯 專案特色
+## 專案特色
 
 - **語言**: Python 3  
 - **視覺化**: 使用 `matplotlib` 產生效能比較圖表  
@@ -17,19 +19,18 @@
 
 ---
 
-## 🤖 實作的演算法
+## 實作的演算法
 
 本專案實作了以下三種演算法：
 
 1. **先到先服務 (First-Come, First-Served - FCFS)**
-2. **最短工作優先 (Shortest Job First - SJF)**
 3. **循環式排程 (Round Robin - RR)**
-
+4. **多層回饋佇列排程 (Multilevel Feedback Queue Scheduling - MLFQ)**
 ---
 
-## 🛠️ 環境需求與安裝
+## 環境需求與安裝
 
-確認你已安裝 Python 3.x。
+確認你已安裝 Python 3.10。
 
 ```bash
 # 複製此專案
@@ -42,7 +43,7 @@ pip install matplotlib
 
 ---
 
-## ▶️ 如何執行
+## 如何執行
 
 直接執行主程式即可啟動模擬：
 
@@ -55,7 +56,7 @@ python main.py
 
 ---
 
-## 📊 輸出結果範例
+## 輸出結果範例
 
 **終端機輸出：**
 
@@ -80,8 +81,8 @@ Average Turnaround Time: 29.80
 
 ---
 
-## 👥 組員
+## 組員
 
 - [你的名字]
-- [組員 B 的名字]
-- [組員 C 的名字]
+- [Andrew HSIEH]
+- [Chris ]
