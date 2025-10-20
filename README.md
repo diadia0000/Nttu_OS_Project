@@ -29,7 +29,7 @@
 
 ## 環境需求與安裝
 
-確認你已安裝 Python 3.10。
+Python 3.10.11。
 
 ```bash
 # 複製此專案
@@ -55,25 +55,6 @@ python main.py
 
 ---
 
-## 輸出結果範例
-
-**終端機輸出：**
-
-```
-*** CPU Scheduling Performance Analysis ***
-
-[FCFS]
-Average Waiting Time: 17.00
-Average Turnaround Time: 27.20
-
-[SJF]
-Average Waiting Time: 8.20
-Average Turnaround Time: 18.40
-
-[Round Robin (Quantum=4)]
-Average Waiting Time: 19.60
-Average Turnaround Time: 29.80
-```
 
 **產生的圖表：**
 `performance_chart.png`
@@ -82,6 +63,8 @@ Average Turnaround Time: 29.80
 
 ## 組員
 
-- [你的名字]
-- [Andrew HSIEH]
-- [Chris]
+- 蔡昌諭(組長)
+- 謝尚哲
+- 鍾承翰
+- 羅宜茜
+- 謝秉倫
