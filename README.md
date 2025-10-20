@@ -5,7 +5,6 @@
 - 平均等待時間（Average Waiting Time）  
 - 平均周轉時間（Average Turnaround Time）
 - 回應時間 (Response Time)
-- CPU 使用率 (CPU Utilization)
 - 吞吐量 (Throughput)
 並將結果以圖表方式視覺化呈現。
 

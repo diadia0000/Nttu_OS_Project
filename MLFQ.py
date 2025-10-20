@@ -1,8 +1,7 @@
 import pandas as pd
 from collections import deque
 import matplotlib.pyplot as plt
-
-
+import os
 
 def mlfq_scheduling_with_history(processes, quantums, aging_period):
     print(f"--- MLFQ Scheduling (Q0={quantums[0]}, Q1={quantums[1]}, Q2=FCFS, Aging={aging_period}) ---")
@@ -90,13 +89,13 @@ def mlfq_scheduling_with_history(processes, quantums, aging_period):
         if running_proc_pid is None:
             if queues[0]:
                 running_proc_pid = queues[0].popleft()
-                # print(f"[Time {current_time}] CPU picks {running_proc_pid} from Q0.")
+                print(f"[Time {current_time}] CPU picks {running_proc_pid} from Q0.")
             elif queues[1]:
                 running_proc_pid = queues[1].popleft()
-                # print(f"[Time {current_time}] CPU picks {running_proc_pid} from Q1.")
+                print(f"[Time {current_time}] CPU picks {running_proc_pid} from Q1.")
             elif queues[2]:
                 running_proc_pid = queues[2].popleft()
-                # print(f"[Time {current_time}] CPU picks {running_proc_pid} from Q2.")
+                print(f"[Time {current_time}] CPU picks {running_proc_pid} from Q2.")
             else:
                 # CPU 閒置
                 gantt_history.append("Idle")  # <--- 記錄 Idle
@@ -142,7 +141,7 @@ def print_mlfq_results(proc_data, processes):
     print(f"平均回應時間 (Average RT): {df['Response'].mean():.2f}\n")
 
 
-def plot_gantt_chart(gantt_history, processes):
+def plot_gantt_chart(gantt_history, processes, save_path=None):
     """
     使用 matplotlib 繪製甘特圖
     """
@@ -220,7 +219,16 @@ def plot_gantt_chart(gantt_history, processes):
     ax.invert_yaxis()
 
     plt.tight_layout()
-    plt.show()
+    if save_path:
+        # 確保資料夾存在
+        output_dir = os.path.dirname(save_path)
+        if output_dir and not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        plt.savefig(save_path)
+        print(f"Gantt chart saved to: {save_path}")
+        plt.close(fig)  # 關閉圖表以釋放記憶體
+    else:
+        plt.show()
 
 # --- 主程式 ---
 
@@ -242,5 +250,6 @@ final_proc_data, history = mlfq_scheduling_with_history(processes_mlfq, quantums
 # 印出摘要表
 print_mlfq_results(final_proc_data, processes_mlfq)
 
-# 繪製甘特圖
-plot_gantt_chart(history, processes_mlfq)
+# 繪製並儲存甘特圖
+save_file_path = "picture_output/MLFQ/MLFQ_Gantt_Chart.png"
+plot_gantt_chart(history, processes_mlfq, save_path=save_file_path)

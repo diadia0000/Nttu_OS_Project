@@ -147,7 +147,7 @@ def round_robin_scheduling(processes, time_quantum):
     print("="*60)
 
     # 繪製甘特圖
-    draw_gantt_chart(gantt_chart, "Round Robin Scheduling")
+    draw_gantt_chart(gantt_chart, f"Round Robin Scheduling (TQ={time_quantum})", time_quantum)
 
     return {
         'process_data': proc_data,
@@ -210,6 +210,13 @@ def draw_gantt_chart(gantt_chart, title, time_quantum=None):
               title='Processes', framealpha=0.9)
 
     plt.tight_layout()
+
+    # 儲存圖表
+    filename = f"RR_TQ_{time_quantum}_gantt.png" if time_quantum is not None else "RR_gantt.png"
+    filepath = os.path.join(OUTPUT_DIR, filename)
+    plt.savefig(filepath)
+    print(f"甘特圖已儲存至: {filepath}")
+
     plt.show()
 
 
@@ -273,6 +280,13 @@ def draw_comparison_chart(results):
     ax3.grid(True, alpha=0.3)
 
     # CPU 使用率
+
+    # 儲存圖表
+    filename = "RR_comparison_chart.png"
+    filepath = os.path.join(OUTPUT_DIR, filename)
+    plt.savefig(filepath)
+    print(f"比較圖已儲存至: {filepath}")
+
     ax4.plot(quantums, cpu_util, marker='D', linewidth=2, markersize=8, color='purple')
     ax4.set_xlabel('Time Quantum', fontweight='bold')
     ax4.set_ylabel('CPU Utilization (%)', fontweight='bold')
