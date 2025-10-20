@@ -84,4 +84,4 @@ Average Turnaround Time: 29.80
 
 - [你的名字]
 - [Andrew HSIEH]
-- [Chris ]
+- [Chris]
