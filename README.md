@@ -47,7 +47,7 @@ pip install matplotlib
 直接執行主程式即可啟動模擬：
 
 ```bash
-python main.py
+python [your_file_name].py
 ```
 
 程式執行後，將會在終端機（Terminal）印出各演算法的效能分析數據，  
