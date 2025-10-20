@@ -279,8 +279,6 @@ def draw_comparison_chart(results):
     ax3.set_title('Average Response Time vs Time Quantum', fontweight='bold')
     ax3.grid(True, alpha=0.3)
 
-    # CPU 使用率
-
     # 儲存圖表
     filename = "RR_comparison_chart.png"
     filepath = os.path.join(OUTPUT_DIR, filename)
